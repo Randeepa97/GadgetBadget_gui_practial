@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\PHOENIX\Desktop\gb_practical\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+234359687.index
+2656335807.index
+2737628505.index
+2681893688.index
+17154836.index
+1153358458.index

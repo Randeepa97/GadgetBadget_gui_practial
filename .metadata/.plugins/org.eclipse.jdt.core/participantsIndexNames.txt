@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+C:\Users\PHOENIX\Desktop\gb_practical\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1633653090.index
+\GadgetBadget_gui\src
