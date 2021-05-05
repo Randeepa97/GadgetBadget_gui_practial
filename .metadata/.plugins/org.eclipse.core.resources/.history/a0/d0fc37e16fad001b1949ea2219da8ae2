@@ -1,0 +1,19 @@
+package model;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/InvestmentAPI")
+public class ProjectAPI extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	ProjectServlet projectObj = new ProjectServlet();
+	
+	public ProjectAPI() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}

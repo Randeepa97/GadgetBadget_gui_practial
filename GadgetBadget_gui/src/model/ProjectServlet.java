@@ -32,7 +32,7 @@ public class ProjectServlet {
 					 {
 						 return "Error while connecting to the database for inserting."; } 
 					 // create a prepared statement
-					 String query = " insert into project_table (	project_id , project_type , project_name , researcher , description)" + " values (?, ?, ?, ?, ?)"; 
+					 String query = " insert into project_table_gui (	project_id , project_type , project_name , researcher , description)" + " values (?, ?, ?, ?, ?)"; 
 					 
 					 PreparedStatement preparedStmt = con.prepareStatement(query); 
 					 // binding values
@@ -46,13 +46,15 @@ public class ProjectServlet {
 					// execute the statement3
 					 preparedStmt.execute(); 
 					 con.close(); 
-					 output = "Inserted successfully"; 
+					 
+					 String newProject = readProject(); 
+					 output = "{\"status\":\"success\", \"data\": \"" + newProject + "\"}"; 
 		 
 		 	} 
 		 	
 		 	catch (Exception e) 
 		 	{ 
-		 		output = "Error while inserting the Project."; 
+		 		output = "{\"status\":\"error\", \"data\": \"Error while inserting the project.\"}";
 		 		System.err.println(e.getMessage()); 
 		 		System.out.println(e);
 		 } 
@@ -78,7 +80,7 @@ public class ProjectServlet {
 					"<th>Update</th><th>Remove</th></tr>"; 
 	 
 	 
-				String query = "select * from project_table"; 
+				String query = "select * from project_table_gui"; 
 				Statement stmt = con.createStatement(); 
 				ResultSet rs = stmt.executeQuery(query); 
 	 
@@ -101,7 +103,7 @@ public class ProjectServlet {
 					
 	 
 					// buttons
-					output += "<td><input name='btnUpdate' type='button' value='Update' class='btn btn-secondary'></td>" + "<td><form method='post' action='items.jsp'>" 
+					output += "<td><input name='btnUpdate' type='button' value='Update' class='btn btn-secondary'></td>" + "<td><form method='post' action='Project.jsp'>" 
 							+ "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
 											+ "<input name='project_id' type='hidden' value='" + project_id 
 											+ "'>" + "</form></td></tr>"; 
@@ -137,7 +139,7 @@ public class ProjectServlet {
 	 
 			// create a prepared statement
 	 
-			String query = "UPDATE project_table SET project_type=?,project_name=?,researcher=?,description=?	"
+			String query = "UPDATE project_table_gui SET project_type=?,project_name=?,researcher=?,description=?	"
 					+ "WHERE project_id=?"; 
 	 
 			PreparedStatement preparedStmt = con.prepareStatement(query); 
@@ -149,15 +151,14 @@ public class ProjectServlet {
 			preparedStmt.setInt(5, Integer.parseInt(project_id)); 
 			// execute the statement
 			preparedStmt.execute(); 
-			con.close(); 
-			output = "Updated successfully"; 
+			 con.close(); 
+			 String newProject = readProject(); output = "{\"status\":\"success\", \"data\": \"" + newProject + "\"}"; 
 		} 
 		
 		catch (Exception e) 
 		{ 
-			output = "Error while updating the project."; 
-			System.err.println(e.getMessage()); 
-			System.out.println(e);
+			output = "{\"status\":\"error\", \"data\": \"Error while updating the investment.\"}"; 
+			 System.err.println(e.getMessage()); 
 		} 
 		return output; 
 	 } 
@@ -175,7 +176,7 @@ public class ProjectServlet {
 				return "Error while connecting to the database for deleting."; } 
 	 
 			// create a prepared statement
-			String query = "delete from project_table where project_id=?"; 
+			String query = "delete from project_table_gui where project_id=?"; 
 			PreparedStatement preparedStmt = con.prepareStatement(query); 
 	 
 			// binding values
@@ -183,13 +184,13 @@ public class ProjectServlet {
 			// execute the statement
 			preparedStmt.execute(); 
 			con.close(); 
-			output = "Deleted successfully"; 
+			String newProject = readProject(); output = "{\"status\":\"success\", \"data\": \"" + newProject + "\"}";
 	 
 		}
 		
 		catch (Exception e) 
 		{ 
-			output = "Error while deleting the project."; 
+			output = "{\"status\":\"error\", \"data\": \"Error while deleting the project.\"}"; 
 			System.err.println(e.getMessage()); 
 			System.out.println(e);
 	 
@@ -200,6 +201,4 @@ public class ProjectServlet {
 		
 		
 				
-		 	
-
 }
