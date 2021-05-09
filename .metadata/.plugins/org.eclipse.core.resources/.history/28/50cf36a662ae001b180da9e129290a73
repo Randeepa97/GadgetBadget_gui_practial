@@ -157,7 +157,7 @@ public class ProjectServlet {
 		
 		catch (Exception e) 
 		{ 
-			output = "{\"status\":\"error\", \"data\": \"Error while updating the project.\"}"; 
+			output = "{\"status\":\"error\", \"data\": \"Error while updating the investment.\"}"; 
 			 System.err.println(e.getMessage()); 
 		} 
 		return output; 
