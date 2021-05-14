@@ -7,9 +7,10 @@
 <meta charset="UTF-8">
 			<title>Project Management - GadgetBadget</title>
 			
-			<link href="myStyle.css" rel="stylesheet" />
+			<link href="css/stylesheetnew.css" rel="stylesheet" />
 		<link rel="stylesheet" href="Views/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		
 		<script src="Components/jquery-3.5.0.min.js"></script>
 		<script src="Components/Project.js"></script>
 </head>
@@ -31,22 +32,22 @@
 					<form id="PROJECT" name="PROJECT" class="border border-light p-5">
 						
 						<div class="form-outline mb-4">
-						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">project_type:</label>
+						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">Project Type:</label>
 						    <input type="text" id="project_type" class="form-control" name="project_type">						    
 						</div>
 						
 						<div class="form-outline mb-4">
-						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">project_name:</label>
+						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">Project Name:</label>
 						    <input type="text" id="project_name" class="form-control" name="project_name">						    
 						</div>
 						
 						<div class="form-outline mb-4">
-						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">researcher:</label>
+						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">Researcher:</label>
 						    <input type="text" id="researcher" class="form-control" name="researcher">						    
 						</div>
 						
 						<div class="form-outline mb-4">
-						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">description:</label>
+						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">Description:</label>
 						    <input type="text" id="description" class="form-control" name="description">						    
 						</div>
 					

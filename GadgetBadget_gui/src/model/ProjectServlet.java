@@ -56,7 +56,7 @@ public class ProjectServlet {
 		 	{ 
 		 		output = "{\"status\":\"error\", \"data\": \"Error while inserting the project.\"}";
 		 		System.err.println(e.getMessage()); 
-		 		System.out.println(e);
+		 		
 		 } 
 		 return output; 
 	 }
@@ -74,7 +74,8 @@ public class ProjectServlet {
 				return "Error while connecting to the database for reading."; } 
 	 
 				// Prepare the html table to be displayed
-				output = "<table border='1'><tr><th>project_type</th><th>project_name</th>" +
+				output = "<table border='1'><tr><th>project_type</th>"
+						+ "<th>project_name</th>" +
 					"<th>researcher</th>" + 
 					"<th>description</th>" +
 					"<th>Update</th><th>Remove</th></tr>"; 
@@ -124,6 +125,8 @@ public class ProjectServlet {
 		} 
 		return output; 
 	 }
+	
+	//update Project
 	public String updateProject(String project_id, String project_type, String project_name, String researcher, String description)
 	 { 
 	 
@@ -139,8 +142,7 @@ public class ProjectServlet {
 	 
 			// create a prepared statement
 	 
-			String query = "UPDATE project_table_gui SET project_type=?,project_name=?,researcher=?,description=?	"
-					+ "WHERE project_id=?"; 
+			String query = "UPDATE project_table_gui SET project_type=?, project_name=?, researcher=?, description=? WHERE project_id=?"; 
 	 
 			PreparedStatement preparedStmt = con.prepareStatement(query); 
 			// binding values
@@ -163,6 +165,7 @@ public class ProjectServlet {
 		return output; 
 	 } 
 	
+	//delete Project
 	public String deleteProject(String project_id) 
 	 { 
 	 
