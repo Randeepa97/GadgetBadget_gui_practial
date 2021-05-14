@@ -33,6 +33,7 @@
 						
 						<div class="form-outline mb-4">
 						    <label class="form-label" for="form6Example3" class="col-sm-2 col-form-label col-form-label-sm">Project Type:</label>
+						    <input type="hidden" id="project_id" name="project_id" value="">
 						    <input type="text" id="project_type" class="form-control" name="project_type">						    
 						</div>
 						
@@ -54,13 +55,13 @@
 						 
 					
 						<br> 
-						
+						<div id="alertSuccess" class="alert alert-success"></div>
+						<div id="alertError" class="alert alert-danger"></div>	
 						<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary btn-lg btn-block"> 
-						<input type="hidden" id="hidProjectIDSave" name="hidProjectIDSave" value="">
+						
 					</form>
 				
-					<div id="alertSuccess" class="alert alert-success"></div>
-					<div id="alertError" class="alert alert-danger"></div>			
+							
 			</fieldset>
 			
 			<br> 

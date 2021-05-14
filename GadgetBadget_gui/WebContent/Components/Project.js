@@ -24,7 +24,7 @@ $(document).on("click", "#btnSave", function(event) {
 	}
 	
 	// If valid------------------------
-	var type = ($("#hidProjectIDSave").val() == "") ? "POST" : "PUT";
+	var type = ($("#project_id").val() == "") ? "POST" : "PUT";
 
 	$.ajax({
 		url : "ProjectAPI",
@@ -67,7 +67,7 @@ function onItemSaveComplete(response, status) {
 		$("#alertError").show();
 	}
 	
-	$("#hidProjectIDSave").val("");
+	$("#project_id").val("");
 	$("#PROJECT")[0].reset();
 }
 
@@ -76,10 +76,11 @@ $(document).on("click", ".btnRemove", function(event) {
 	$.ajax({
 		url : "ProjectAPI",
 		type : "DELETE",
-		data : "project_id=" + $(this).data("project_id"),
+		data : "project_id=" + event.target.value,
 		dataType : "text",
 		complete : function(response, status) {
 			onItemDeleteComplete(response.responseText, status);
+			window.location.reload(true);
 		}
 	});
 });
@@ -117,11 +118,11 @@ function onItemDeleteComplete(response, status) {
 // UPDATE==========================================
 $(document).on("click",".btnUpdate",function(event)
 		{
-			$("#hidProjectIDSave").val($(this).data("project_id"));
-			$("#project_type").val($(this).closest("tr").find('td:eq(0)').text());
-			$("#project_name").val($(this).closest("tr").find('td:eq(1)').text());
-			$("#researcher").val($(this).closest("tr").find('td:eq(2)').text());
-			$("#description").val($(this).closest("tr").find('td:eq(3)').text());
+			$("#project_id").val($(this).closest("tr").find('td:eq(0)').text());
+			$("#project_type").val($(this).closest("tr").find('td:eq(1)').text());
+			$("#project_name").val($(this).closest("tr").find('td:eq(2)').text());
+			$("#researcher").val($(this).closest("tr").find('td:eq(3)').text());
+			$("#description").val($(this).closest("tr").find('td:eq(4)').text());
 			
 		});
 

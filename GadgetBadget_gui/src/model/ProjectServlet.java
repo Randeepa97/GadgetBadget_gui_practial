@@ -74,8 +74,9 @@ public class ProjectServlet {
 				return "Error while connecting to the database for reading."; } 
 	 
 				// Prepare the html table to be displayed
-				output = "<table border='1'><tr><th>project_type</th>"
-						+ "<th>project_name</th>" +
+				output = "<table border='1'><tr><th>project_id</th>"
+						+ "<th>project_type</th>" +
+						 "<th>project_name</th>" +
 					"<th>researcher</th>" + 
 					"<th>description</th>" +
 					"<th>Update</th><th>Remove</th></tr>"; 
@@ -97,17 +98,17 @@ public class ProjectServlet {
 					
 	 
 					// Add into the html table
-					output += "<tr><td>" + project_type + "</td>"; 
+					output += "<tr><td>" + project_id + "</td>";
+					output += "<td>" + project_type + "</td>";
 					output += "<td>" + project_name + "</td>"; 
 					output += "<td>" + researcher + "</td>"; 
 					output += "<td>" + description + "</td>"; 
 					
 	 
 					// buttons
-					output += "<td><input name='btnUpdate' type='button' value='Update' class='btn btn-secondary'></td>" + "<td><form method='post' action='Project.jsp'>" 
-							+ "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
-											+ "<input name='project_id' type='hidden' value='" + project_id 
-											+ "'>" + "</form></td></tr>"; 
+					// buttons
+					 output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td>"
+							 + "<td><button class='btnRemove btn btn-danger' name='btnRemove' id ='btnRemove' value='"+ project_id +"' >Remove</button></td></tr>";
 				} 
 				
 				con.close(); 
